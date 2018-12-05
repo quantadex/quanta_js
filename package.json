@@ -1,6 +1,6 @@
 {
-  "name": "quanta_js",
-  "version": "1.0.0",
+  "name": "@quantadex/quanta_js",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
