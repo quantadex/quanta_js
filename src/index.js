@@ -2,7 +2,7 @@ import qbase from '@quantadex/quanta-base';
 import signAuth from "./auth.js";
 const fetch = require('node-fetch');
 
-const OrderBookUrlDefault = "http://testnet-01.quantachain.io:7200"
+const OrderBookUrlDefault = "http://orderbook-api-792236404.us-west-2.elb.amazonaws.com"
 const PRECISION = 10000000
 
 class QuantaClient {
@@ -51,8 +51,15 @@ class QuantaClient {
 
 
 	cancelOrder(orderId) {
-
+		var sig = signAuth(this.key, "/cancel/" + orderId, "");
+		console.log(sig);
+		return fetch(this.orderbookUrl + "/cancel/" + orderId, {
+			headers: {
+				"Authorization": sig
+			}
+		})
 	}
+	
 	/**
 	 * List open orders
 	 */

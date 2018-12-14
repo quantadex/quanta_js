@@ -33,10 +33,28 @@ describe('quanta_client', function () {
 
 	it("has make some order", function () {
 		const c = new Client({ orderbookUrl: Client.OrderBookUrlDefault, secretKey: "ZCPG75J3GDSTTQ7GF4LNMUPTX4QM2SVDJZDHZ64G3IQLBKVXDAV7424O" })
-		return c.submitOrder(0, marketTest, "1.30", "0.1")
-			.then((e) => e.json()).then((e) => {
-				console.log("ordered ", e);
+		return c.submitOrder(1, marketTest, "2.0", "0.00001")
+			.then((e) => {
+				if (e.status == 200) {
+					return e.json()					
+				} else {
+					return e.text()
+				}
+			}).then((e) => {
+				console.log("ordered ", e.Id);
 				//assert.ok(e.CurrentOrders > 0, "Should have open orders")
+				return c.cancelOrder(e.Id).then((e) => {
+					if (e.status == 200) {
+						return e.json()
+					} else {
+						console.log("expected to be 200", e.status);
+						assert.equal(e.status, 200, "expected 200")
+						return e.text()
+					}
+				})
+				.then((e) => {
+					console.log("cancelled ", e);
+				})
 			}).catch((e) => {
 				console.log(e);
 			})
