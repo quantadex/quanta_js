@@ -7,7 +7,7 @@ import {
     types
 } from "../../lib";
 // import { Apis } from 'bitsharesjs-ws';
-import {Apis, ChainConfig} from "bitsharesjs-ws";
+import {Apis, ChainConfig} from "@quantadex/bitsharesjs-ws";
 import assert from "assert";
 
 describe("issue13", function() {
@@ -36,11 +36,11 @@ describe("issue13", function() {
                             ],
                             key_auths: [
                                 [
-                                    "BTS8DZinV1rFkdgs2sMMhUrk6wAyq1fTB8eLKQzcYihkgrjiv3tLn",
+                                    "QA8DZinV1rFkdgs2sMMhUrk6wAyq1fTB8eLKQzcYihkgrjiv3tLn",
                                     1
                                 ],
                                 [
-                                    "BTS6agpGeRkc1zHD9MTbHaK9CKR1Pt8aU4v2GTxF6tRtf3ZC3TnU6",
+                                    "QA6agpGeRkc1zHD9MTbHaK9CKR1Pt8aU4v2GTxF6tRtf3ZC3TnU6",
                                     1
                                 ]
                             ],
@@ -54,7 +54,7 @@ describe("issue13", function() {
                             ],
                             key_auths: [
                                 [
-                                    "BTS517Q7o3TgYnsaduUwLRUekPdHzu1cgx9LtskoRJghJ8yeo19eR",
+                                    "QA517Q7o3TgYnsaduUwLRUekPdHzu1cgx9LtskoRJghJ8yeo19eR",
                                     1
                                 ]
                             ],

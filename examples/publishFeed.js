@@ -1,4 +1,4 @@
-import {Apis} from "bitsharesjs-ws";
+import {Apis} from "@quantadex/bitsharesjs-ws";
 import {TransactionBuilder, PrivateKey} from "../lib";
 
 const wifKey = "5KBuq5WmHvgePmB7w3onYsqLM8ESomM2Ae7SigYuuwg8MDHW7NN";

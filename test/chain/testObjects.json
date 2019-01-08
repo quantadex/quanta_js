@@ -13,7 +13,7 @@
             "weight_threshold": 1,
             "account_auths": [],
             "key_auths": [
-                ["BTS53ehf9Qoeg9o4E1KuxdZRXCVg3Z9ApbEDHVdQhERDJDEFkPkGs", 1]
+                ["QA53ehf9Qoeg9o4E1KuxdZRXCVg3Z9ApbEDHVdQhERDJDEFkPkGs", 1]
             ],
             "address_auths": []
         },
@@ -21,12 +21,12 @@
             "weight_threshold": 1,
             "account_auths": [],
             "key_auths": [
-                ["BTS8MmcVDiutGynSpi5vSr8tWbrTDWYWpAkTXUD24sJu45DBFLSRK", 1]
+                ["QA8MmcVDiutGynSpi5vSr8tWbrTDWYWpAkTXUD24sJu45DBFLSRK", 1]
             ],
             "address_auths": []
         },
         "options": {
-            "memo_key": "BTS8MmcVDiutGynSpi5vSr8tWbrTDWYWpAkTXUD24sJu45DBFLSRK",
+            "memo_key": "QA8MmcVDiutGynSpi5vSr8tWbrTDWYWpAkTXUD24sJu45DBFLSRK",
             "voting_account": "1.2.5",
             "num_witness": 23,
             "num_committee": 10,

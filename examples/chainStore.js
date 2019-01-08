@@ -1,4 +1,4 @@
-import {Apis} from "bitsharesjs-ws";
+import {Apis} from "@quantadex/bitsharesjs-ws";
 import {ChainStore} from "../lib";
 
 Apis.instance("wss://eu.nodes.bitshares.ws", true).init_promise.then(res => {
