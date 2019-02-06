@@ -4,6 +4,7 @@ import {Long} from "bytebuffer";
 import {ChainConfig} from "@quantadex/bitsharesjs-ws";
 
 import secureRandom from "secure-random";
+import {decryptWallet, encryptWallet, changeWalletPassword} from "../../lib";
 
 import dictionary from "./dictionary";
 
@@ -252,6 +253,36 @@ describe("ECC", function() {
         //     }
         //
         // })
+    });
+
+    describe("Encrypt wallet", function() {
+        it("check encrypt/decrypt", function() {
+            let brainKey = key.suggest_brain_key(dictionary.en);
+            //console.log("test - ", brainKey);
+            const wallet = encryptWallet(brainKey, "test123");
+            //console.log("wallet ", wallet);
+
+            let decrypted = decryptWallet(wallet, "test123");
+            assert.equal(decrypted.brainkey_plaintext, brainKey);
+
+            decrypted = decryptWallet(wallet, "t");
+            assert.equal(decrypted, null, "expect to fail decrypt");
+
+            // change password
+            let new_wallet = changeWalletPassword(wallet, "test123", "new123");
+            //console.log("new wallet=", new_wallet);
+
+            decrypted = decryptWallet(new_wallet, "test123");
+            assert.equal(decrypted, null, "expect to fail with old password");
+
+            decrypted = decryptWallet(new_wallet, "new123");
+            assert.notEqual(
+                decrypted,
+                null,
+                "expect to work with new password"
+            );
+            assert.equal(decrypted.brainkey_plaintext, brainKey);
+        });
     });
 });
 
